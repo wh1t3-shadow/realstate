@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>JBS HOLDINGS LIMITED | Japanese Quality, Bangladeshi Heart</title>
+  <meta name="description" content="JBS Holdings Ltd. is a premier Japan-Bangladesh joint venture real estate developer crafting ultra-luxury residential and commercial projects in Bashundhara R/A, Uttara, and across Dhaka.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="https://jbsholdingsbd.com/wp-content/uploads/2022/11/cropped-jbsss-32x32.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- GSAP 3 & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+</head>
+<body>
+
+  <!-- 1. LUXURY EDITORIAL PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-curtain left"></div>
+    <div class="preloader-curtain right"></div>
+    <div class="preloader-content">
+      <div class="preloader-logo">JBS HOLDINGS</div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar" id="preloaderBar"></div>
+      </div>
+      <div class="preloader-number" id="preloaderNum">00%</div>
+    </div>
+  </div>
+
+  <!-- 2. AMBIENT FLOATING GOLD PARTICLES CANVAS -->
+  <canvas id="dustCanvas"></canvas>
+
+  <!-- 3. CUSTOM LUXURY CURSOR (Desktop) -->
+  <div class="custom-cursor"></div>
+  <div class="cursor-follower">
+    <span class="cursor-text"></span>
+  </div>
+
+  <!-- 4. NOISE TEXTURE OVERLAY -->
+  <div class="noise-overlay"></div>
+
+  <!-- 5. DESKTOP SIDE PROGRESS DOT MATRIX -->
+  <nav class="side-dot-nav" id="sideNav">
+    <div class="side-dot active" data-target="hero" data-tooltip="Overview"></div>
+    <div class="side-dot" data-target="doors" data-tooltip="Heritage"></div>
+    <div class="side-dot" data-target="nature" data-tooltip="Eco Design"></div>
+    <div class="side-dot" data-target="wellness" data-tooltip="Standards"></div>
+    <div class="side-dot" data-target="architecture" data-tooltip="Projects"></div>
+    <div class="side-dot" data-target="reel" data-tooltip="3D Showcase"></div>
+    <div class="side-dot" data-target="residences" data-tooltip="Collection"></div>
+    <div class="side-dot" data-target="interiors" data-tooltip="Interiors"></div>
+    <div class="side-dot" data-target="location" data-tooltip="Locations"></div>
+  </nav>
+
+  <!-- 6. MOBILE NATIVE BOTTOM APP BAR (App-Like Nav) -->
+  <nav class="mobile-app-bottom-bar" id="mobileBottomBar">
+    <ul class="mobile-app-nav-items">
+      <li>
+        <a href="#hero" class="mobile-app-tab active" data-tab="hero">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#wellness" class="mobile-app-tab" data-tab="wellness">
+          <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+          <span>Quality</span>
+        </a>
+      </li>
+      <li>
+        <a href="#reel" class="mobile-app-tab" data-tab="reel">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+          <span>3D Ring</span>
+        </a>
+      </li>
+      <li>
+        <a href="#residences" class="mobile-app-tab" data-tab="residences">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Units</span>
+        </a>
+      </li>
+      <li>
+        <button class="mobile-app-tab tab-action open-callback-modal">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>Contact</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 7. MOBILE APP DRAWER MENU -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-sheet">
+      <div>
+        <div class="drawer-header">
+          <a href="#" class="brand-logo">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/jbs-logo.png" alt="JBS Holdings Logo" class="brand-logo-img">
+            <span>JBS HOLDINGS</span>
+          </a>
+          <button class="modal-close-btn" id="drawerCloseBtn">&times;</button>
+        </div>
+
+        <ul class="drawer-nav-list">
+          <li><a href="#hero" class="drawer-link"><span>01. Overview</span> <span class="arrow">→</span></a></li>
+          <li><a href="#doors" class="drawer-link"><span>02. Japanese Heritage</span> <span class="arrow">→</span></a></li>
+          <li><a href="#nature" class="drawer-link"><span>03. Green Living</span> <span class="arrow">→</span></a></li>
+          <li><a href="#wellness" class="drawer-link"><span>04. Quality & Amenities</span> <span class="arrow">→</span></a></li>
+          <li><a href="#architecture" class="drawer-link"><span>05. Iconic Architecture</span> <span class="arrow">→</span></a></li>
+          <li><a href="#reel" class="drawer-link"><span>06. 3D Project Ring</span> <span class="arrow">→</span></a></li>
+          <li><a href="#residences" class="drawer-link"><span>07. Featured Projects</span> <span class="arrow">→</span></a></li>
+          <li><a href="#interiors" class="drawer-link"><span>08. Premium Interiors</span> <span class="arrow">→</span></a></li>
+          <li><a href="#location" class="drawer-link"><span>09. Prime Locations</span> <span class="arrow">→</span></a></li>
+        </ul>
+      </div>
+
+      <div class="drawer-footer">
+        <button class="btn-luxury open-callback-modal" style="width: 100%;">
+          <span>Schedule Site Visit</span>
+        </button>
+        <p style="color: var(--text-secondary); font-size: 0.8rem; margin-top: 1rem; text-align: center;">
+          Hotline: +88 01313 71 74 74 | +88 01755 660 680
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. SITE HEADER -->
+  <header class="site-header">
+    <a href="#" class="brand-logo" data-magnetic="true">
+      <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/jbs-logo.png" alt="JBS Holdings Logo" class="brand-logo-img">
+      <span>JBS HOLDINGS</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#doors" class="nav-link" data-magnetic="true">Heritage</a></li>
+        <li><a href="#nature" class="nav-link" data-magnetic="true">Eco Design</a></li>
+        <li><a href="#wellness" class="nav-link" data-magnetic="true">Quality</a></li>
+        <li><a href="#architecture" class="nav-link" data-magnetic="true">Architecture</a></li>
+        <li><a href="#reel" class="nav-link" data-magnetic="true">3D Gallery</a></li>
+        <li><a href="#residences" class="nav-link" data-magnetic="true">Projects</a></li>
+        <li><a href="#interiors" class="nav-link" data-magnetic="true">Interiors</a></li>
+        <li><a href="#location" class="nav-link" data-magnetic="true">Locations</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <!-- Ambient Sound Button -->
+      <button class="sound-toggle-btn" id="soundToggle" title="Toggle Sound Atmosphere" data-magnetic="true">
+        <div class="sound-waves paused">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </button>
+
+      <button class="btn-luxury open-callback-modal" data-magnetic="true">
+        <span>Inquire</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Open Navigation">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Content -->
+  <main id="main-content">
+
+    <!-- SECTION 1: HERO PINNED PARALLAX & CURTAIN WIPE -->
+    <section class="hero-section" id="hero">
+      <div class="hero-background">
+        <img 
+          src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg" 
+          alt="JBS Holdings Flagship Architecture" 
+          class="hero-video-or-img"
+        >
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="hero-subtitle tagline">Japan-Bangladesh Joint Venture</span>
+        <h1 class="hero-title">
+          Japanese Engineering with <br>
+          <span class="italic-word">Luxury Living in Dhaka</span>
+        </h1>
+        <p class="hero-description">
+          Crafting world-class architectural landmarks in Bashundhara R/A, Uttara, and prime Dhaka. Discover premium apartments, sky penthouses, and commercial spaces built with earthquake-resilient Japanese precision.
+        </p>
+        <div class="hero-actions">
+          <a href="#residences" class="btn-luxury" data-magnetic="true">Explore Projects</a>
+          <a href="#reel" class="btn-luxury-outline" data-magnetic="true">3D Showcase</a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <span class="stat-num">40+</span>
+            <span class="stat-label">Luxury Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Japanese QC</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">15+</span>
+            <span class="stat-label">Years of Trust</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">3.2 - 4.2m</span>
+            <span class="stat-label">High Ceilings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Scroll to Explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: OPEN THE DOORS - PINNED PORTAL REVEAL -->
+    <section class="doors-portal-section" id="doors">
+      <div class="doors-container">
+        <!-- Left Sliding Door -->
+        <div class="door-left">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-MIKADO_BASHUNDHARA-R_A.jpg" alt="JBS Mikado Bashundhara">
+        </div>
+        <!-- Right Sliding Door -->
+        <div class="door-right">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-NAZ-GARDEN-2.jpg" alt="JBS Naz Garden Uttara">
+        </div>
+
+        <!-- Center Revealed Content -->
+        <div class="portal-center-content">
+          <span class="tagline">Japanese Standard in Bangladesh</span>
+          <h2 class="portal-title gold-gradient-text">
+            Open the Doors of JBS — A Sanctuary of Japanese Excellence
+          </h2>
+          <p class="portal-desc">
+            JBS Holdings Ltd. brings state-of-the-art Japanese civil engineering, seismic safety standards, and timeless architectural luxury to Dhaka's most prestigious locations. Step into a sanctuary where tranquil Japanese aesthetics meet Dhaka's most coveted neighborhoods.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NATURE - PINNED HORIZONTAL SWEEP -->
+    <section class="nature-pinned-section" id="nature">
+      <div class="nature-container">
+        <!-- Text sliding in from LEFT -->
+        <div class="nature-left-panel">
+          <span class="tagline">Eco-Conscious Living</span>
+          <h2 class="font-serif" style="font-size: clamp(2rem, 4vw, 3.2rem); margin: 1rem 0 1.5rem;">
+            Where Nature Meets Japanese Engineering
+          </h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem; font-size: 1.05rem;">
+            Inspired by Japanese environmental philosophy, our residential complexes in Bashundhara and Uttara incorporate landscaped rooftop gardens, lush vertical greenery, and open-air loggias that invite natural sunlight and fresh air into every home.
+          </p>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 1.2rem; color: #d0ceca;">
+            <li style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: var(--accent-gold);">✦</span>
+              <span>Landscaped Japanese Zen gardens and rooftop lounges with panoramic skyline views.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: var(--accent-gold);">✦</span>
+              <span>Rainwater harvesting, energy-saving double-glazing, and eco-friendly construction materials.</span>
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 1rem;">
+              <span style="color: var(--accent-gold);">✦</span>
+              <span>Expansive central open spaces, walking trails, and children's safe play areas.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Image sliding in from RIGHT with Parallax -->
+        <div class="nature-right-panel">
+          <div class="nature-image-card">
+            <img 
+              src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg" 
+              alt="JBS Ranhill Garden Landscaped Living"
+            >
+            <div class="card-badge">JBS Green Living Standards</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: DUAL SCREEN PINNED / SPLIT-SCREEN STICKY SCROLL (STANDARDS & AMENITIES) -->
+    <section class="dual-split-section" id="wellness">
+      <div class="split-wrapper">
+        <!-- LEFT SIDE: STICKY / PINNED -->
+        <div class="split-left-sticky">
+          <span class="tagline">World-Class Infrastructure</span>
+          <h2 class="font-serif" style="font-size: clamp(2rem, 3.5vw, 3rem); margin-top: 0.5rem;">
+            Japanese Quality & Living Standards
+          </h2>
+          <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.7; font-size: 0.95rem;">
+            Every JBS project combines cutting-edge Japanese architectural engineering with lifestyle conveniences tailored for contemporary Bangladeshi families.
+          </p>
+
+          <!-- Interactive Nav Indicators -->
+          <div class="split-nav-tabs">
+            <div class="split-nav-item active" data-target="wellness-spa" data-magnetic="true">
+              <span class="nav-idx">01</span>
+              <span>High-Speed Elevators & Security</span>
+              <div class="line-indicator"></div>
+            </div>
+            <div class="split-nav-item" data-target="wellness-yoga" data-magnetic="true">
+              <span class="nav-idx">02</span>
+              <span>Rooftop Zen Lounge</span>
+              <div class="line-indicator"></div>
+            </div>
+            <div class="split-nav-item" data-target="wellness-fitness" data-magnetic="true">
+              <span class="nav-idx">03</span>
+              <span>Modern Fitness Hub</span>
+              <div class="line-indicator"></div>
+            </div>
+            <div class="split-nav-item" data-target="wellness-cafe" data-magnetic="true">
+              <span class="nav-idx">04</span>
+              <span>Full Power & Water Safety</span>
+              <div class="line-indicator"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: SCROLLING CONTENT CARDS -->
+        <div class="split-right-scroll">
+          <!-- Card 1: Elevators & Lobby -->
+          <div class="split-card-item" id="wellness-spa">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/Commercial_lift-scaled.jpg" alt="JBS Modern Elevators & Lobby" class="split-card-image">
+            <div class="split-card-body">
+              <h3>01. High-Speed Japanese Elevators & Smart Reception</h3>
+              <p>
+                Equipped with imported Mitsubishi and Fuji world-class elevators with emergency rescue devices, 24/7 CCTV smart surveillance, and air-conditioned designer grand reception lobbies.
+              </p>
+              <div class="split-card-meta">
+                <div class="meta-pill"><span>⚡</span> High-Speed Lifts</div>
+                <div class="meta-pill"><span>🛡️</span> 24/7 Smart Security</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Rooftop Lounge -->
+          <div class="split-card-item" id="wellness-yoga">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/03/2-950x700.jpg" alt="JBS Rooftop Garden" class="split-card-image">
+            <div class="split-card-body">
+              <h3>02. Rooftop Zen Garden & Observation Deck</h3>
+              <p>
+                Breathtaking rooftop landscapes offering serene open-air family barbecue stations, reflexology walking tracks, and panoramic skyline vistas over Bashundhara and Dhaka.
+              </p>
+              <div class="split-card-meta">
+                <div class="meta-pill"><span>🌿</span> Japanese Zen Garden</div>
+                <div class="meta-pill"><span>🌅</span> 360° Sky Lounge</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Fitness -->
+          <div class="split-card-item" id="wellness-fitness">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/11/01-950x700.png" alt="JBS Fitness & Wellness Center" class="split-card-image">
+            <div class="split-card-body">
+              <h3>03. Modern Gymnasium & Wellness Center</h3>
+              <p>
+                Stay active with fully equipped cardiovascular and strength training equipment, dedicated yoga zones, and community multipurpose halls for family celebrations.
+              </p>
+              <div class="split-card-meta">
+                <div class="meta-pill"><span>🏋️</span> Equipped Gym</div>
+                <div class="meta-pill"><span>🎉</span> Community Hall</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: 100% Power & Water -->
+          <div class="split-card-item" id="wellness-cafe">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/img-08-3.jpg" alt="JBS Infrastructure & Water Systems" class="split-card-image">
+            <div class="split-card-body">
+              <h3>04. 100% Continuous Power & Deep Filtered Water</h3>
+              <p>
+                European heavy-duty sound-attenuated generators providing automatic seamless power backup to all apartments, coupled with multi-stage deep water purification and fire hydrants.
+              </p>
+              <div class="split-card-meta">
+                <div class="meta-pill"><span>🔋</span> 100% Power Backup</div>
+                <div class="meta-pill"><span>💧</span> Deep Filtered Water</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INSPIRED ARCHITECTURE PINNED HORIZONTAL CASCADE -->
+    <section class="arch-horizontal-section" id="architecture">
+      <div class="arch-slider-track">
+        <!-- Intro Card -->
+        <div class="arch-intro-card">
+          <span class="tagline">Flagship Landmarks</span>
+          <h2 class="font-serif" style="font-size: clamp(2.2rem, 3.8vw, 3.5rem); margin: 0.8rem 0 1.2rem;">
+            Iconic JBS Architecture
+          </h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+            Designed by leading Japanese and Bangladeshi master architects. Every project represents seismic resilience, structural beauty, and luxury lifestyle.
+          </p>
+          <div style="color: var(--accent-gold); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;">
+            Scroll to sweep horizontally ⟶
+          </div>
+        </div>
+
+        <!-- Slide 1: JBS Fuji -->
+        <div class="arch-slide-card">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-Fuji4.png" alt="JBS Fuji Architecture">
+          <div class="arch-slide-caption">
+            <h3>JBS Fuji</h3>
+            <p>Bashundhara R/A — Contemporary crystalline facade with earthquake-resilient engineering</p>
+          </div>
+        </div>
+
+        <!-- Slide 2: JBS Mikado -->
+        <div class="arch-slide-card">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-MIKADO_BASHUNDHARA-R_A.jpg" alt="JBS Mikado Architecture">
+          <div class="arch-slide-caption">
+            <h3>JBS Mikado</h3>
+            <p>Bashundhara R/A — Luxury view apartments with expansive balconies & private reception</p>
+          </div>
+        </div>
+
+        <!-- Slide 3: JBS Ranhill Garden -->
+        <div class="arch-slide-card">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg" alt="JBS Ranhill Garden">
+          <div class="arch-slide-caption">
+            <h3>JBS Ranhill Garden</h3>
+            <p>Uttara Diabari — Master-planned green community living adjacent to metro rail connectivity</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: 3D ROTATING FILM REEL / CYLINDRICAL PHOTO RING -->
+    <section class="film-reel-section" id="reel">
+      <div class="reel-header">
+        <span class="tagline">Interactive 3D Portfolio</span>
+        <h2 class="gold-gradient-text">JBS Signature Projects Showcase</h2>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.95rem;">
+          Scroll or drag with your mouse or finger to explore JBS's luxury developments in 3D
+        </p>
+      </div>
+
+      <!-- 3D Viewport -->
+      <div class="reel-3d-viewport">
+        <div class="reel-cylinder">
+          <!-- Card 1: JBS Fuji -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-Fuji4.png" alt="JBS Fuji Bashundhara">
+            <div class="item-caption">
+              <h4>JBS Fuji</h4>
+              <span>Bashundhara R/A</span>
+            </div>
+          </div>
+          <!-- Card 2: JBS Mikado -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-MIKADO_BASHUNDHARA-R_A.jpg" alt="JBS Mikado Bashundhara">
+            <div class="item-caption">
+              <h4>JBS Mikado</h4>
+              <span>Bashundhara R/A</span>
+            </div>
+          </div>
+          <!-- Card 3: JBS Ranhill Garden -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg" alt="JBS Ranhill Garden Uttara">
+            <div class="item-caption">
+              <h4>JBS Ranhill Garden</h4>
+              <span>Uttara Diabari</span>
+            </div>
+          </div>
+          <!-- Card 4: JBS Naz Garden -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-NAZ-GARDEN-2.jpg" alt="JBS Naz Garden">
+            <div class="item-caption">
+              <h4>JBS Naz Garden</h4>
+              <span>Ashkona, Uttara</span>
+            </div>
+          </div>
+          <!-- Card 5: JBS Eshaal Modern Enclave -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2022/11/JBS-ESHAAL_UTTARA.jpg" alt="JBS Eshaal">
+            <div class="item-caption">
+              <h4>JBS Eshaal</h4>
+              <span>Uttara Sector 11</span>
+            </div>
+          </div>
+          <!-- Card 6: JBS Akebono -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/03/3-926x1024.jpg" alt="JBS Akebono">
+            <div class="item-caption">
+              <h4>JBS Akebono</h4>
+              <span>Bashundhara R/A</span>
+            </div>
+          </div>
+          <!-- Card 7: JBS Oasis Flagship -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2025/10/Oasis1_R2.jpg" alt="JBS Oasis Flagship">
+            <div class="item-caption">
+              <h4>JBS Oasis</h4>
+              <span>Bashundhara R/A</span>
+            </div>
+          </div>
+          <!-- Card 8: JBS Burhan Palace -->
+          <div class="reel-item">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Burhan-Palace5.png" alt="JBS Burhan Palace">
+            <div class="item-caption">
+              <h4>JBS Burhan Palace</h4>
+              <span>Bashundhara R/A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reel Controls -->
+      <div class="reel-controls">
+        <button class="reel-arrow-btn reel-prev-btn" title="Rotate Previous" data-magnetic="true">
+          &#8592;
+        </button>
+        <span class="reel-hint">◀ Drag or Scroll Ring ▶</span>
+        <button class="reel-arrow-btn reel-next-btn" title="Rotate Next" data-magnetic="true">
+          &#8594;
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 7: RESIDENCES & FLOORPLANS CURTAIN ENTRY -->
+    <section class="residences-section" id="residences">
+      <div class="residences-header">
+        <span class="tagline">Exclusive Living Spaces</span>
+        <h2>Signature JBS Residences & Penthouses</h2>
+        <p style="color: var(--text-secondary); margin-top: 1rem;">
+          Select from luxury view flats, multi-level duplexes, and expansive penthouses with ceiling heights up to 4.2 meters.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="residence-filter-bar">
+        <button class="filter-pill-btn active" data-filter="all" data-magnetic="true">All Projects</button>
+        <button class="filter-pill-btn" data-filter="flat" data-magnetic="true">Bashundhara R/A</button>
+        <button class="filter-pill-btn" data-filter="townhouse" data-magnetic="true">Uttara & Diabari</button>
+        <button class="filter-pill-btn" data-filter="penthouse" data-magnetic="true">Penthouses</button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="residences-grid">
+        <!-- Project 1: JBS Fuji (Bashundhara) -->
+        <div class="residence-card" data-category="flat">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-Fuji4.png" alt="JBS Fuji Luxury Suite">
+            <div class="residence-tag">Bashundhara R/A</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Fuji Luxury Residence</h3>
+              <p class="type-desc">Spacious 4-bedroom view apartment with triple-glazed acoustic windows and private lift lobby.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,650 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.3 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 11</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 3.65 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Fuji Residence - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-Fuji4.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: JBS Mikado (Bashundhara) -->
+        <div class="residence-card" data-category="flat">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-MIKADO_BASHUNDHARA-R_A.jpg" alt="JBS Mikado Townhouse">
+            <div class="residence-tag">Bashundhara R/A</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Mikado Grand Duplex</h3>
+              <p class="type-desc">Ultra-luxury duplex suite featuring high ceilings, double-height glass lounge, and private parking.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">3,850 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.8 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">2 Levels</div>
+                  <div class="spec-lbl">Floors</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 5.80 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Mikado Grand Duplex - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-MIKADO_BASHUNDHARA-R_A.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: JBS Freesia (Bashundhara) -->
+        <div class="residence-card" data-category="flat">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Freesia1.png" alt="JBS Freesia Living">
+            <div class="residence-tag">Bashundhara R/A</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Freesia Living</h3>
+              <p class="type-desc">Exclusive multi-family residences with landscaped balconies, solar energy, and concierge services.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,900 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.4 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 08</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 4.10 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Freesia Living - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Freesia1.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: JBS Burhan Palace (Bashundhara) -->
+        <div class="residence-card" data-category="flat">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Burhan-Palace5.png" alt="JBS Burhan Palace">
+            <div class="residence-tag">Bashundhara R/A</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Burhan Palace</h3>
+              <p class="type-desc">Prestigious architectural residence designed with reinforced earthquake engineering and high-speed elevators.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">3,200 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.5 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 10</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 4.60 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Burhan Palace - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Burhan-Palace5.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: JBS Ranhill Garden (Uttara) -->
+        <div class="residence-card" data-category="townhouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg" alt="JBS Ranhill Garden">
+            <div class="residence-tag">Uttara Sector 18</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Ranhill Garden Living</h3>
+              <p class="type-desc">Master-planned architectural landmark adjacent to Metro Rail with lush landscaped central park.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,550 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.3 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 07</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 3.25 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Ranhill Garden - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2024/09/RANHILL-GARDEN.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: JBS Naz Garden (Uttara) -->
+        <div class="residence-card" data-category="townhouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-NAZ-GARDEN-2.jpg" alt="JBS Naz Garden">
+            <div class="residence-tag">Ashkona, Uttara</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Naz Garden Enclave</h3>
+              <p class="type-desc">Contemporary boutique residential development featuring expansive glass facades and tranquil atmosphere.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,350 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.2 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 05</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 2.90 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Naz Garden - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2024/09/JBS-NAZ-GARDEN-2.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7: JBS Eshaal (Uttara) -->
+        <div class="residence-card" data-category="townhouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2022/11/JBS-ESHAAL_UTTARA.jpg" alt="JBS Eshaal Modern Enclave">
+            <div class="residence-tag">Uttara Sector 11</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Eshaal Modern Enclave</h3>
+              <p class="type-desc">Sculpted modern architecture with expansive private balconies, south-facing airflow, and 24/7 security.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,450 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.2 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 06</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 3.15 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Eshaal Enclave - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2022/11/JBS-ESHAAL_UTTARA.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8: JBS Mahira Villa (Uttara) -->
+        <div class="residence-card" data-category="townhouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Mahira-villa6.png" alt="JBS Mahira Villa">
+            <div class="residence-tag">Uttara Sector 13</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Mahira Villa</h3>
+              <p class="type-desc">Serene luxury residences with acoustic double-glazing, generator backup, and dedicated underground parking.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">2,180 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.2 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 04</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 2.65 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Mahira Villa - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Mahira-villa6.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9: JBS Oasis Crown Penthouse (Penthouse) -->
+        <div class="residence-card" data-category="penthouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2025/10/Oasis1_R2.jpg" alt="JBS Oasis Crown Penthouse">
+            <div class="residence-tag">Flagship Sky Palace</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Oasis Crown Penthouse</h3>
+              <p class="type-desc">Flagship 2025 multi-level sky palace with private infinity terrace pool and 360° horizon views.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">5,200 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">4.2 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Top Level</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 8.50 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Oasis Crown Penthouse - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2025/10/Oasis1_R2.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 10: JBS Sheikh Castle Sky Penthouse (Penthouse) -->
+        <div class="residence-card" data-category="penthouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Sheikh-Castle8.png" alt="JBS Sheikh Castle Penthouse">
+            <div class="residence-tag">Bashundhara Penthouse</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Sheikh Castle Sky Penthouse</h3>
+              <p class="type-desc">Palatial duplex penthouse with private high-speed lift, double-height ceiling, and landscaped roof lawn.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">4,750 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">4.0 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 12-13</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 7.20 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Sheikh Castle Penthouse - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Sheikh-Castle8.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 11: JBS Akebono Sky Villa (Penthouse) -->
+        <div class="residence-card" data-category="penthouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2024/03/3-926x1024.jpg" alt="JBS Akebono Penthouse">
+            <div class="residence-tag">Sky Villa Residence</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Akebono Sky Villa</h3>
+              <p class="type-desc">Panoramic penthouse with glass conservatory, private barbecue terrace, and 3-car garage.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">4,350 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.9 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 11-12</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 6.80 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Akebono Sky Villa - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2024/03/3-926x1024.jpg"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 12: JBS Palacio Crown Suites (Penthouse) -->
+        <div class="residence-card" data-category="penthouse">
+          <div class="card-img-wrap">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Palacio1.png" alt="JBS Palacio Penthouse">
+            <div class="residence-tag">Exclusive Sky Suite</div>
+          </div>
+          <div class="card-info">
+            <div>
+              <h3>JBS Palacio Crown Suites</h3>
+              <p class="type-desc">Bespoke ultra-luxury duplex with private garden deck, sauna, and panoramic master suite.</p>
+              <div class="spec-grid">
+                <div class="spec-item">
+                  <div class="spec-val">4,100 sft</div>
+                  <div class="spec-lbl">Area</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">3.8 m</div>
+                  <div class="spec-lbl">Ceiling</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-val">Floor 10-11</div>
+                  <div class="spec-lbl">Level</div>
+                </div>
+              </div>
+            </div>
+            <div class="card-bottom-action">
+              <span class="price-text">৳ 6.20 Cr</span>
+              <button 
+                class="btn-luxury-outline open-floorplan-btn"
+                data-title="JBS Palacio Crown Suites - Floor Plan"
+                data-plan-img="https://jbsholdingsbd.com/wp-content/uploads/2023/02/JBS-Palacio1.png"
+                data-magnetic="true"
+              >
+                Floor Plan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: INTERIORS PINNED SPLIT-REVEAL (Japanese Craftsmanship) -->
+    <section class="interiors-pinned-section" id="interiors">
+      <div class="interiors-container">
+        <!-- Image Slider sliding in from TOP -->
+        <div class="interior-preview-slider">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/img-06.jpg" alt="JBS Luxury Living Room" class="interior-slide-img active">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/img-07.jpg" alt="JBS Premium Bedroom Suite" class="interior-slide-img">
+          <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/img-10.jpg" alt="JBS Designer Kitchen" class="interior-slide-img">
+        </div>
+
+        <!-- Description & Materials sliding up from BOTTOM -->
+        <div class="interior-text-panel">
+          <span class="tagline">Japanese Craftsmanship & Finishes</span>
+          <h2 class="font-serif" style="font-size: clamp(2rem, 3.5vw, 3rem); margin: 0.8rem 0 1.2rem;">
+            Architectural Elegance in Every Detail
+          </h2>
+          <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.5rem;">
+            JBS Holdings incorporates Japanese craftsmanship and global luxury standards in every residence. From earthquake-resistant structural engineering to imported Italian marble and Japanese fittings, experience superior turnkey living in Dhaka.
+          </p>
+          <p style="color: var(--text-secondary); line-height: 1.8;">
+            Each home provides an acoustic peaceful sanctuary with insulated walls, cross-ventilation, and custom designer finishes.
+          </p>
+
+          <div class="interior-materials-list">
+            <div class="material-card" data-magnetic="true">
+              <div class="mat-icon">🪨</div>
+              <div class="mat-text">
+                <h5>Italian Marble & Granite</h5>
+                <p>Imported Calacatta & Polished Granite</p>
+              </div>
+            </div>
+            <div class="material-card" data-magnetic="true">
+              <div class="mat-icon">🪵</div>
+              <div class="mat-text">
+                <h5>Burmese Teak & Solid Oak</h5>
+                <p>Handcrafted solid doors & parquet</p>
+              </div>
+            </div>
+            <div class="material-card" data-magnetic="true">
+              <div class="mat-icon">🛡️</div>
+              <div class="mat-text">
+                <h5>Grade 72.5 Deformed Steel</h5>
+                <p>High-strength seismic reinforced rebar</p>
+              </div>
+            </div>
+            <div class="material-card" data-magnetic="true">
+              <div class="mat-icon">✨</div>
+              <div class="mat-text">
+                <h5>Japanese Fittings</h5>
+                <p>TOTO / Grohe sanitaryware & hardware</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: LOCATION PINNED CIRCLE EXPANSION & METRICS -->
+    <section class="location-pinned-section" id="location">
+      <!-- Expanding Background Mask -->
+      <div class="location-bg-mask"></div>
+
+      <div class="location-content-wrap">
+        <span class="tagline">Prime Dhaka Addresses</span>
+        <h2 class="font-serif" style="font-size: clamp(2.2rem, 4vw, 3.8rem); margin-top: 0.5rem;">
+          Bashundhara R/A & Uttara Diplomatic Enclave
+        </h2>
+        <p style="color: var(--text-secondary); max-width: 650px; margin: 1rem auto 0; font-size: 1.05rem;">
+          JBS developments are situated across the most elite and high-growth sectors of Dhaka, offering serene lake views, wide green avenues, and world-class connectivity.
+        </p>
+
+        <div class="location-metrics">
+          <div class="metric-box" data-magnetic="true">
+            <div class="metric-time">5</div>
+            <div class="metric-desc">Minutes to Evercare Hospital & Jamuna Future Park</div>
+          </div>
+          <div class="metric-box" data-magnetic="true">
+            <div class="metric-time">8</div>
+            <div class="metric-desc">Minutes to Top International Schools (ISD, Playpen)</div>
+          </div>
+          <div class="metric-box" data-magnetic="true">
+            <div class="metric-time">15</div>
+            <div class="metric-desc">Minutes to Airport via Elevated Expressway</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FOOTER & PERSONAL CONSULTATION -->
+    <footer class="site-footer" id="footer">
+      <div class="footer-cta">
+        <span class="tagline">Personal Consultation</span>
+        <h2 class="gold-gradient-text">Experience JBS Projects in Person</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+          Our senior property advisors and engineers are ready to curate a customized site tour tailored to your schedule.
+        </p>
+        <button class="btn-luxury open-callback-modal" data-magnetic="true">
+          <span>Schedule Site Visit</span>
+        </button>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="brand-logo" style="margin-bottom: 1.5rem; display: inline-flex;" data-magnetic="true">
+            <img src="https://jbsholdingsbd.com/wp-content/uploads/2018/12/jbs-logo.png" alt="JBS Holdings Logo" class="brand-logo-img">
+            <span>JBS HOLDINGS</span>
+          </a>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; max-width: 320px;">
+            Japan-Bangladesh Joint Venture Luxury Real Estate Developer. Delivering seismic-safe, prestigious residential and commercial landmarks across Bashundhara R/A, Uttara, and Dhaka.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Signature Projects</h4>
+          <ul>
+            <li><a href="#residences">JBS Fuji (Bashundhara)</a></li>
+            <li><a href="#residences">JBS Mikado (Bashundhara)</a></li>
+            <li><a href="#residences">JBS Ranhill Garden (Uttara)</a></li>
+            <li><a href="#reel">3D Showcase Ring</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Specifications</h4>
+          <ul>
+            <li><a href="#wellness">Japanese QC Standards</a></li>
+            <li><a href="#wellness">Seismic Safety Engineering</a></li>
+            <li><a href="#wellness">100% Full Power Backup</a></li>
+            <li><a href="#nature">Green Eco Architecture</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Corporate Office</h4>
+          <ul>
+            <li style="color: #fff; font-weight: 600;">+88 01313 71 74 74</li>
+            <li style="color: var(--accent-gold); font-weight: 500;">+88 01755 660 680</li>
+            <li>info@jbsholdingsbd.com</li>
+            <li style="line-height: 1.6; margin-top: 0.4rem;">Plot-C2, Level-7, Road-01, Block-G, Bashundhara R/A, Dhaka – 1229, Bangladesh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 JBS Holdings Limited. All rights reserved. REHAB Member & RAJUK Approved.</p>
+        <p>A Japan-Bangladesh Joint Venture Real Estate Enterprise</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- MODAL 1: CALLBACK / CONSULTATION INQUIRY (Bottom Sheet on Mobile) -->
+  <div class="modal-backdrop" id="callbackModal">
+    <div class="modal-content">
+      <div class="modal-drag-handle"></div>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <span class="tagline">Exclusive Inquiry</span>
+      <h3 class="font-serif" style="font-size: 1.8rem; margin: 0.5rem 0 1.5rem; color: #fff;">
+        Book a Private Site Tour
+      </h3>
+      <form id="callbackForm">
+        <div class="form-group">
+          <label for="userName">Full Name</label>
+          <input type="text" id="userName" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="userPhone">Phone Number</label>
+          <input type="tel" id="userPhone" placeholder="+880 1___-______" required>
+        </div>
+        <div class="form-group">
+          <label for="residenceType">Interested In</label>
+          <select id="residenceType">
+            <option value="fuji">JBS Fuji - Bashundhara R/A (from ৳ 3.65 Cr)</option>
+            <option value="mikado">JBS Mikado - Bashundhara R/A (from ৳ 5.80 Cr)</option>
+            <option value="ranhill">JBS Ranhill Garden - Uttara (from ৳ 7.50 Cr)</option>
+            <option value="commercial">JBS Commercial Developments (Investment)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-luxury" style="width: 100%; margin-top: 1rem;">
+          <span>Submit Request</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 2: FLOOR PLAN VIEWER (Bottom Sheet on Mobile) -->
+  <div class="modal-backdrop" id="floorplanModal">
+    <div class="modal-content floorplan-modal-content">
+      <div class="modal-drag-handle"></div>
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <span class="tagline">Architectural Blueprint</span>
+      <h3 class="font-serif" id="floorplanTitle" style="font-size: 1.8rem; margin: 0.5rem 0 1rem; color: #fff;">
+        Residence Floor Plan
+      </h3>
+      <div class="floorplan-view-wrap">
+        <img id="floorplanImg" src="" alt="Blueprint" style="max-height: 480px; width: auto; border-radius: 8px; object-fit: contain;">
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <span style="color: var(--text-secondary); font-size: 0.85rem;">Includes master suite, private lobby, panoramic balcony</span>
+        <button class="btn-luxury open-callback-modal">Inquire on This Project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="js/main.js"></script>
+</body>
+</html>
