@@ -562,8 +562,8 @@ body.cursor-drag .cursor-follower .cursor-text {
 
 .brand-logo-img {
   height: clamp(26px, 3.2vh, 32px);
-  width: auto;
-  object-fit: contain;
+  width: 60px;
+  object-fit: cover;
   display: block;
 }
 
